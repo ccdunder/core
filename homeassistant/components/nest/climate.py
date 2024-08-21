@@ -29,7 +29,7 @@ from homeassistant.components.climate import (
     HVACMode,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import ATTR_TEMPERATURE, UnitOfTemperature
+from homeassistant.const import ATTR_TEMPERATURE, PRECISION_TENTHS, UnitOfTemperature
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -98,6 +98,7 @@ class ThermostatEntity(ClimateEntity):
 
     _attr_min_temp = MIN_TEMP
     _attr_max_temp = MAX_TEMP
+    _attr_precision = PRECISION_TENTHS
     _attr_has_entity_name = True
     _attr_should_poll = False
     _attr_name = None
